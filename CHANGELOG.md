@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.16 — 2026-10-19
+
+### Security
+
+- Web pages and files for the site device viewer: the host is resolved once and the request connects to that checked address (Host and TLS SNI keep the name), so DNS rebinding can't reach internal services; IPv4-mapped IPv6 in hex form (`[::ffff:7f00:1]`), NAT64 and 6to4 forms, `*.localhost`, multicast, reserved and documentation ranges are refused; every redirect hop is checked again; browser "bad ports" stay closed.
+- The screenshot library and Hugeicons routes no longer send `Access-Control-Allow-Origin: *`; BB loads them from its own origin.
+
 ## 0.8.15 — 2026-10-18
 
 ### Added
